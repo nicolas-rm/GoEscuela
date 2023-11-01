@@ -29,6 +29,12 @@ dependencies:
   '@angular/router':
     specifier: ^16.2.0
     version: 16.2.11(@angular/common@16.2.11)(@angular/core@16.2.11)(@angular/platform-browser@16.2.11)(rxjs@7.8.1)
+  '@iconify/icons-mdi':
+    specifier: ^1.2.48
+    version: 1.2.48
+  '@visurel/iconify-angular':
+    specifier: ^11.0.0
+    version: 11.0.0(@angular/common@16.2.11)(@angular/core@16.2.11)
   rxjs:
     specifier: ~7.8.0
     version: 7.8.1
@@ -1895,6 +1901,16 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
+  /@iconify/icons-mdi@1.2.48:
+    resolution: {integrity: sha512-1Tiq+iX1d2MzrdDiw45Tc9HuhNgg8H4vvaKNV+kF+jmr/kPG+YyeLMyXUKp4bwv+gheIAgNpZPjuqAPRkmMieA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify/types@2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: false
+
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -2305,6 +2321,17 @@ packages:
     dependencies:
       '@types/node': 20.8.10
     dev: true
+
+  /@visurel/iconify-angular@11.0.0(@angular/common@16.2.11)(@angular/core@16.2.11):
+    resolution: {integrity: sha512-VaF0Zg0em3an3BnylxquJQATh7/Z34KG76dd85hvWXrm/FIv6q5yB8GAndUuTwTOU3CIRswsv6Lt15pdzk//xA==}
+    peerDependencies:
+      '@angular/common': '>=5.0.0'
+      '@angular/core': '>=5.0.0'
+    dependencies:
+      '@angular/common': 16.2.11(@angular/core@16.2.11)(rxjs@7.8.1)
+      '@angular/core': 16.2.11(rxjs@7.8.1)(zone.js@0.13.3)
+      tslib: 2.6.2
+    dev: false
 
   /@vitejs/plugin-basic-ssl@1.0.1(vite@4.4.7):
     resolution: {integrity: sha512-pcub+YbFtFhaGRTo1832FQHQSHvMrlb43974e2eS8EKleR3p1cDdkJFPci1UhwkEf1J9Bz+wKBSzqpKp7nNj2A==}
