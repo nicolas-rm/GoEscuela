@@ -1,21 +1,17 @@
-<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+<!-- CONTENEDOR -->
+<div class="container-fluid">
     <!-- CABECERA -->
     <app-header></app-header>
-
-    <!-- CONTENEDOR -->
-    <div class="container-fluid">
-
-        <!-- BREADCRUMBS / IMAGEN PRINCIPAL -->
-        <app-breadcrumbs></app-breadcrumbs>
-
-        <!-- SISTEMA DE RUTAS -->
-        <section class="course">
-            <div class="card">
-                <div class="card-body">
-                    <!-- INFORMACION DEL RENDER -->
-                    <app-section></app-section>
-                </div>
+    <!-- BREADCRUMBS / IMAGEN PRINCIPAL -->
+    <app-breadcrumbs></app-breadcrumbs>
+    <!-- SISTEMA DE RUTAS -->
+    <section class="course">
+        <div class="card">
+            <div class="card-body">
+                <!-- INFORMACION DEL RENDER -->
+                <!-- <app-section></app-section> -->
+                <router-outlet></router-outlet>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </div>
