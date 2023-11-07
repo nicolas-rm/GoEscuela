@@ -17,6 +17,8 @@ import { PrimariesComponent } from './pages/primaries/primaries.component';
 
 /* MODULOS */
 import { AppRoutesModule } from './app-routes.module';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AppRoutesModule } from './app-routes.module';
   /* TODOS LOS MODULOS VAN EN IMPORTS */
   imports: [
     BrowserModule,
-	AppRoutesModule
+	AppRoutesModule,
+ provideFirebaseApp(() => initializeApp({"projectId":"integrador-uptap","appId":"1:69769056513:web:ebf24b6cd5e40134748b00","storageBucket":"integrador-uptap.appspot.com","apiKey":"AIzaSyBErqBmco0hBSm-OmtcjMfcQKrsgmpLPpQ","authDomain":"integrador-uptap.firebaseapp.com","messagingSenderId":"69769056513","measurementId":"G-N8FXGHRRB9"})),
+ provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

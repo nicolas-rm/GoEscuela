@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "integrador-uptap": {
+      "hosting": {
+        "goEscuela-pnpm": [
+          "integrador-uptap"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "integrador-uptap"
+  }
+}
