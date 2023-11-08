@@ -19,5 +19,5 @@ export class AppComponent {
   // constructor(iconService: IconService){
   //   iconService.registerAll(appIcons);
   // }
-  title = 'goEscuela-pnpm';
+  title = 'GoEscuela';
 }

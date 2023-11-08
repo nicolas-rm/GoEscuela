@@ -9,7 +9,7 @@
                     <a class="nav-link sidebartoggler nav-icon-hover" id="sidebarCollapse" href="javascript:void(0)">
                         <div class="logo">
                             <h3 id="GoSkul">
-                                <a href="/" style='text-decoration:none; color:black;'>
+                                <a routerLink="/" style='text-decoration:none; color:black;'>
 									Go<b>Escuela</b>
 								</a>
                             </h3>
@@ -30,27 +30,25 @@
                 <li class="nav-item dropdown-hover d-none d-lg-block">
                     <a class="nav-link" routerLink="/primarias">Primarias</a>
                 </li>
+                <li class="nav-item dropdown-hover d-none d-lg-block">
+                    <a class="nav-link" routerLink="/registro">Registrar Informacion</a>
+                </li>
             </ul>
-            <!-- <div class="d-block d-lg-none">
-                            <a href="index.html">
-                              <img src="../assets/images/logo/logo-dark.svg" class="logo-dark" />
-                              <img src="../assets/images/logo/logo-light.svg" class="logo-light" />
-                            </a>
-                          </div> -->
             <button class="navbar-toggler nav-link border-0" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <div>
-          <a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)" id="drop3"
-            aria-expanded="false">
-            <form class="nav-link position-relative">
-              <input type="text" class="form-control rounded-3 py-2 ps-5 text-dark" id="search"
-                placeholder="Buscar">
-              <span class="iconify text-dark position-absolute top-50 start-0 translate-middle-y text-dark ms-3"
-                data-icon="solar:magnifer-linear"></span>
-            </form>
-          </a>
-          <!-- <span class="iconify fs-7" data-icon="solar:menu-dots-bold-duotone"></span> -->
-        </div>
-      </button>
+				<div>
+					<a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)" id="drop3"
+						aria-expanded="false">
+						<form class="nav-link position-relative">
+							<input type="text" class="form-control rounded-3 py-2 ps-5 text-dark" id="search"
+								placeholder="Buscar">
+							<span
+								class="iconify text-dark position-absolute top-50 start-0 translate-middle-y text-dark ms-3"
+								data-icon="solar:magnifer-linear"></span>
+						</form>
+					</a>
+					<!-- <span class="iconify fs-7" data-icon="solar:menu-dots-bold-duotone"></span> -->
+				</div>
+			</button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <div class="d-flex align-items-center justify-content-between">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
