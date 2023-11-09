@@ -1,9 +1,17 @@
 {
-  "hosting": [
-    {
-      "target": "goEscuela-pnpm",
-      "source": ".",
-      "frameworksBackend": {}
+    "hosting": {
+        "public": "./dist/go-escuela-pnpm",
+        "rewrites": [{
+            "source": "**",
+            "destination": "/index.html"
+        }],
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ],
+        "predeploy": [
+            "pnpm run build"
+        ]
     }
-  ]
 }
