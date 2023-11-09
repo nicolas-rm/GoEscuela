@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "public": "./dist/*",
+        "public": "./dist/go-escuela-pnpm",
         "ignore": [],
         "rewrites": [{
             "source": "**",
