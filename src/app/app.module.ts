@@ -33,7 +33,7 @@ import { SharedModule } from './shared/shared.module';
 		/* IMPORTACION DEL MODULO DE PAGINAS */
 		PagesModule,
 		provideFirebaseApp(() => initializeApp(environment.FireBaseKey)),
-		provideFirestore(() => getFirestore()),
+		provideFirestore(() => getFirestore())
 	],
 	providers: [],
 	bootstrap: [AppComponent]
