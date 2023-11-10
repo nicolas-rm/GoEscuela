@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here and other directives ng
+
 /* COMPONENTES */
 import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.component';
 import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.component';
@@ -34,7 +36,8 @@ import { RegisterComponent } from './register/register.component';
     ],
     imports: [
         CommonModule,
-		AppRoutesModule
+		AppRoutesModule,
+		FormsModule
     ]
 })
 export class PagesModule { }

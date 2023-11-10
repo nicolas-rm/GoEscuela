@@ -12,52 +12,55 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="Username" />
-                        <label><i class="ti ti-picture-in-picture-off text-dark fs-5 me-2"></i>Imagen Portada</label>
+                        <!-- <input id="name" [(ngModel)]="hero.name" placeholder="name">
+						<label for="name">Hero name: </label> -->
+                        <input id="portadaInst" [(ngModel)]="instituto.portada" type="text" class="form-control" name="portadaInst" placeholder="portadaInst" />
+                        <label for="portadaInst"><i class="ti ti-picture-in-picture-off text-dark fs-5 me-2"></i>Imagen
+							Portada</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="Username" />
-                        <label><i class="ti ti-picture-in-picture text-dark fs-5 me-2"></i>Logo</label>
+                        <input id="logoInst" [(ngModel)]="instituto.logo" type="text" class="form-control" name="logoInst" placeholder="logoInst" />
+                        <label for="logoInst"><i class="ti ti-picture-in-picture text-dark fs-5 me-2"></i>Logo</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="Username" />
-                        <label><i class="ti ti-school text-dark fs-5 me-2"></i>Institucion</label>
+                        <input id="nombreInst" [(ngModel)]="instituto.nombre" type="text" class="form-control" name="nombreInst" placeholder="nombreInst" />
+                        <label for="nombreInst"><i class="ti ti-school text-dark fs-5 me-2"></i>Institucion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" placeholder="Username" />
-                        <label><i class="ti ti-clock text-dark fs-5 me-2"></i>Tiempo Finalizacion</label>
+                        <input id="tiempoFinalizacionInst" [(ngModel)]="instituto.tiempoFinalizacion" type="text" class="form-control" name="tiempoFinalizacionInst" placeholder="tiempoFinalizacionInst" />
+                        <label for="tiempoFinalizacionInst"><i class="ti ti-clock text-dark fs-5 me-2"></i>Tiempo
+							Finalizacion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3 note-description">
-                        <textarea class="form-control" placeholder="Descripcion" id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label><i class="ti ti-info-circle text-dark fs-5 me-2"></i>Descripcion</label>
+                        <textarea id="descripcionInst" [(ngModel)]="instituto.descripcion" class="form-control" name="descripcionInst" placeholder="descripcionInst" style="height: 100px"></textarea>
+                        <label for="descripcionInst"><i
+								class="ti ti-info-circle text-dark fs-5 me-2"></i>Descripcion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="input-group form-floating mb-1">
-                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                        <label><i class="ti ti-book text-dark fs-5 me-2"></i>Ofera Educativa</label>
-                        <button class="btn btn-light-info text-info" type="button">Agregar</button>
+                        <input id="ofertaInst" [(ngModel)]="oferta" type="text" class="form-control" name="ofertaInst" placeholder="ofertaInst" aria-label="" aria-describedby="basic-addon1">
+                        <label for="ofertaInst"><i class="ti ti-book text-dark fs-5 me-2"></i>Ofera Educativa</label>
+                        <button class="btn btn-light-info text-info" (click)="controlAgregarOfertaEducativa()" type="button">Agregar</button>
                     </div>
                     <!-- INICIO DE OFERTAS EDUCATIVAS -->
-                    <div class="card-body border-1">
-                        <h5>
-                            <span class="mb-1 badge rounded-pill bg-primary">Ingenieria De Software</span>
-                            <span class="mb-1 badge rounded-pill bg-secondary">Ingenieria Animacion Efectos Visuales</span>
-                            <span class="mb-1 badge rounded-pill bg-success">Success</span>
-                            <span class="mb-1 badge rounded-pill bg-danger">Danger</span>
-                            <span class="mb-1 badge rounded-pill bg-warning">Warning</span>
-                            <span class="mb-1 badge rounded-pill bg-info">Info</span>
-                            <span class="mb-1 badge rounded-pill bg-light">Light</span>
-                            <span class="mb-1 badge rounded-pill bg-dark">Dark</span>
-                        </h5>
+                    <div class="container">
+                        <!-- NG FOR: RECORRE TODOS LOS DATOS QUE SE ENCUENTRAN EN EL ARREGLO DE OFERAS EDUCATIVAS Y EL BOTON ELIMINA EL DATO
+						CORRESPONDIENTE A LA OFERTA EDUCATIVA -->
+                        <a *ngFor="let item of instituto.ofertasEducativas; let i = index" class="mb-1 badge rounded-pill bg-primary">
+							{{ item }}
+							<a (click)="controlEliminarOfertaEducativa(i)">
+								<span class="iconify fs-7 cursor-pointer" data-icon="solar:close-circle-broken"></span>
+							</a>
+                        </a>
                     </div>
                     <!-- FIN DE OFERTAS EDUCATIVAS -->
                 </div>
