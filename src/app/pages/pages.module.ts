@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here and other directives ng
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here and other directives ng
 
 /* COMPONENTES */
 import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.component';
@@ -37,7 +37,9 @@ import { RegisterComponent } from './register/register.component';
     imports: [
         CommonModule,
 		AppRoutesModule,
-		FormsModule
+		FormsModule,
+        /* FORMAULARIOS REACTIVOS: VALIDACIONES Y CONTROL DE DATOS A TRAVEZ DE FUNIONES NG */
+		ReactiveFormsModule
     ]
 })
 export class PagesModule { }

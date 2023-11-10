@@ -8,12 +8,10 @@
                 </div>
             </div>
         </div>
-        <form class="">
+        <form autocomplete="off" id="loginForm" #loginForm="ngForm" ngNativeValidate name="loginForm">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <!-- <input id="name" [(ngModel)]="hero.name" placeholder="name">
-						<label for="name">Hero name: </label> -->
                         <input id="portadaInst" [(ngModel)]="instituto.portada" type="text" class="form-control" name="portadaInst" placeholder="portadaInst" />
                         <label for="portadaInst"><i class="ti ti-picture-in-picture-off text-dark fs-5 me-2"></i>Imagen
 							Portada</label>
@@ -27,34 +25,34 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input id="nombreInst" [(ngModel)]="instituto.nombre" type="text" class="form-control" name="nombreInst" placeholder="nombreInst" />
+                        <input id="nombreInst" required="true" [(ngModel)]="instituto.nombre" type="text" class="form-control" name="nombreInst" placeholder="nombreInst" />
                         <label for="nombreInst"><i class="ti ti-school text-dark fs-5 me-2"></i>Institucion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3">
-                        <input id="tiempoFinalizacionInst" [(ngModel)]="instituto.tiempoFinalizacion" type="text" class="form-control" name="tiempoFinalizacionInst" placeholder="tiempoFinalizacionInst" />
+                        <input id="tiempoFinalizacionInst" [required]="instituto.tiempoFinalizacion" [(ngModel)]="instituto.tiempoFinalizacion" type="text" class="form-control" name="tiempoFinalizacionInst" placeholder="tiempoFinalizacionInst" />
                         <label for="tiempoFinalizacionInst"><i class="ti ti-clock text-dark fs-5 me-2"></i>Tiempo
 							Finalizacion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-floating mb-3 note-description">
-                        <textarea id="descripcionInst" [(ngModel)]="instituto.descripcion" class="form-control" name="descripcionInst" placeholder="descripcionInst" style="height: 100px"></textarea>
+                        <textarea id="descripcionInst" [required]="instituto.descripcion" [(ngModel)]="instituto.descripcion" class="form-control" name="descripcionInst" placeholder="descripcionInst" style="height: 100px"></textarea>
                         <label for="descripcionInst"><i
 								class="ti ti-info-circle text-dark fs-5 me-2"></i>Descripcion</label>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="input-group form-floating mb-1">
-                        <input id="ofertaInst" [(ngModel)]="oferta" type="text" class="form-control" name="ofertaInst" placeholder="ofertaInst" aria-label="" aria-describedby="basic-addon1">
+                        <input id="ofertaInst" [required]="instituto.ofertasEducativas.length <= 0" [(ngModel)]="oferta" type="text" class="form-control" name="ofertaInst" placeholder="ofertaInst" aria-label="" aria-describedby="basic-addon1">
                         <label for="ofertaInst"><i class="ti ti-book text-dark fs-5 me-2"></i>Ofera Educativa</label>
                         <button class="btn btn-light-info text-info" (click)="controlAgregarOfertaEducativa()" type="button">Agregar</button>
                     </div>
                     <!-- INICIO DE OFERTAS EDUCATIVAS -->
                     <div class="container">
                         <!-- NG FOR: RECORRE TODOS LOS DATOS QUE SE ENCUENTRAN EN EL ARREGLO DE OFERAS EDUCATIVAS Y EL BOTON ELIMINA EL DATO
-						CORRESPONDIENTE A LA OFERTA EDUCATIVA -->
+							CORRESPONDIENTE A LA OFERTA EDUCATIVA -->
                         <a *ngFor="let item of instituto.ofertasEducativas; let i = index" class="mb-1 badge rounded-pill bg-primary">
 							{{ item }}
 							<a (click)="controlEliminarOfertaEducativa(i)">
@@ -78,16 +76,15 @@
                     </div>
                 </div>
             </div>
-            <div class="d-md-flex align-items-center">
-                <div class="mt-3 mt-md-0 ms-auto">
-                    <button type="submit" class="btn btn-primary rounded-pill px-4">
-						<div class="d-flex align-items-center">
-							<i class="ti ti-send fs-5 me-2"></i>
-							Registrar
-						</div>
-					</button>
-                </div>
-            </div>
         </form>
+        <div class="d-md-flex align-items-center">
+            <div class="mt-3 mt-md-0 ms-auto">
+                <a class="btn btn-primary rounded-pill px-4" (click)="crearInstitucionCompleta()">
+                    <div class="d-flex align-items-center">
+                        <i class="ti ti-send fs-5 me-2"></i> Registrar
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

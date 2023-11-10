@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { AppRoutesModule } from './app-routes.module';
 
 /* MODULOS PARA INICIALIZAR FIREBASE */
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 /* CREDENCIALES DE FIREBASE */
 import { environment } from '../environments/environment.development';
@@ -24,7 +25,7 @@ import { SharedModule } from './shared/shared.module';
 	declarations: [
 		AppComponent
 	],
-	/* TODOS LOS MODULOS VAN EN IMPORTS */
+	/* LOS MODULOS VAN EN IMPORTS */
 	imports: [
 		BrowserModule,
 		AppRoutesModule,
@@ -32,8 +33,11 @@ import { SharedModule } from './shared/shared.module';
 		SharedModule,
 		/* IMPORTACION DEL MODULO DE PAGINAS */
 		PagesModule,
-		provideFirebaseApp(() => initializeApp(environment.FireBaseKey)),
-		provideFirestore(() => getFirestore())
+		/* MODULOS E IMPORTACIONES PARA FIREBASE/FIRESTORE */
+		AngularFireModule.initializeApp(environment.FireBaseKey),
+		provideFirestore(() => getFirestore()),
+		AngularFirestoreModule,
+		AngularFireModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

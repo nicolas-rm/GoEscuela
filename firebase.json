@@ -5,6 +5,9 @@
         "rewrites": [{
             "source": "**",
             "destination": "/index.html"
-        }]
+        }],
+        "predeploy": [
+            "ng build"
+        ]
     }
 }
