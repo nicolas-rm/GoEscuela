@@ -66,11 +66,11 @@
                     <div class="form-floating mb-3">
                         <div class="form-group">
                             <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria Educativa</label>
-                            <select class="form-select mr-sm-2" id="inlineFormCustomSelect">
-								<option selected>Primaria</option>
-								<option value="1">Secundaria</option>
-								<option value="2">Preparatoria</option>
-								<option value="3">Universidad</option>
+                            <select name="tipoInstituto" [(ngModel)]="instituto.tipoInstituto" class="form-select mr-sm-2" id="inlineFormCustomSelect">
+								<option value="Primaria">Primaria</option>
+								<option value="Secundaria">Secundaria</option>
+								<option value="Preparatoria">Preparatoria</option>
+								<option value="Universidad">Universidad</option>
 							</select>
                         </div>
                     </div>
@@ -79,11 +79,11 @@
         </form>
         <div class="d-md-flex align-items-center">
             <div class="mt-3 mt-md-0 ms-auto">
-                <a class="btn btn-primary rounded-pill px-4" (click)="crearInstitucionCompleta()">
+                <button class="btn btn-primary rounded-pill px-4" (click)="crearInstitucionCompleta()" [disabled]="!this.validacionCompleta">
                     <div class="d-flex align-items-center">
                         <i class="ti ti-send fs-5 me-2"></i> Registrar
                     </div>
-                </a>
+                </button>
             </div>
         </div>
     </div>

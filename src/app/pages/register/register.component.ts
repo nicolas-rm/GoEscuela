@@ -21,11 +21,12 @@ export class RegisterComponent implements OnInit {
 		nombre: '',
 		tiempoFinalizacion: '',
 		descripcion: '',
-		ofertasEducativas: []
+		ofertasEducativas: [],
+		tipoInstituto: ''
 	}
 
 	oferta: string = ''
-	validacionCompleta: Boolean = false
+	validacionCompleta: Boolean = true
 
 	ngOnInit(): void {
 
@@ -70,10 +71,13 @@ export class RegisterComponent implements OnInit {
 	/* Crear un regitro nuevo de institucion */
 	async crearInstitucionCompleta() {
 		const validacion = this.validacionEspacios()
+
 		if(validacion){
+			this.validacionCompleta = false
 			const resultado = await this.FireStore.crearInstitucion(this.instituto)
 			if(resultado){
 				SWAL_CREATE(`Institucion creada Correctamente`)
+				this.validacionCompleta = true
 			}
 		}
 	}

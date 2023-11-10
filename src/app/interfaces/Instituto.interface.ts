@@ -1,9 +1,10 @@
 export interface Instituto {
 	id?: string;
 	logo?: string;
-	portada?: string;
 	nombre: string;
-	tiempoFinalizacion: string;
+	portada?: string;
 	descripcion: string;
+	tipoInstituto: string;
+	tiempoFinalizacion: string;
 	ofertasEducativas: string[];
 }
