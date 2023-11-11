@@ -53,7 +53,7 @@
                     <div class="container">
                         <!-- NG FOR: RECORRE TODOS LOS DATOS QUE SE ENCUENTRAN EN EL ARREGLO DE OFERAS EDUCATIVAS Y EL BOTON ELIMINA EL DATO
 							CORRESPONDIENTE A LA OFERTA EDUCATIVA -->
-                        <a *ngFor="let item of instituto.ofertasEducativas; let i = index" class="mb-1 badge rounded-pill bg-primary">
+                        <a *ngFor="let item of instituto.ofertasEducativas; let i = index" class="mb-1 badge rounded-pill bg-primary text-wrap">
 							{{ item }}
 							<a (click)="controlEliminarOfertaEducativa(i)">
 								<span class="iconify fs-7 cursor-pointer" data-icon="solar:close-circle-broken"></span>

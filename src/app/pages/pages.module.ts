@@ -14,6 +14,10 @@ import { PrimariesComponent } from '../pages/primaries/primaries.component';
 import { AppRoutesModule } from '../app-routes.module';
 import { RegisterComponent } from './register/register.component';
 
+/* PIPE */
+import { ImagenPipe } from '../pipes/imagen.pipe';
+import { DetailsComponent } from './details/details.component';
+
 @NgModule({
     declarations: [
         BreadcrumbsComponent,
@@ -24,6 +28,8 @@ import { RegisterComponent } from './register/register.component';
         HighSchoolsComponent,
         PrimariesComponent,
         RegisterComponent,
+		ImagenPipe,
+  DetailsComponent
     ],
     exports: [
         BreadcrumbsComponent,

@@ -34,6 +34,17 @@ export class RegisterComponent implements OnInit {
 
 	constructor(private FireStore: FirestoreService, private _router: Router) { }
 
+	/* RESTABLECER LOS CAMPOS POR VALOR DEFAULT */
+	restablecerCampos() {
+		this.instituto = {
+			nombre: '',
+			tiempoFinalizacion: '',
+			descripcion: '',
+			ofertasEducativas: [],
+			tipoInstituto: ''
+		}
+	}
+
 	/* Agregar una oferta */
 	controlAgregarOfertaEducativa() {
 		if (this.oferta) {
@@ -51,14 +62,14 @@ export class RegisterComponent implements OnInit {
 	validacionEspacios() {
 		const instituloBackup: any = this.instituto
 
-		if(this.instituto.ofertasEducativas.length <= 0){
+		if (this.instituto.ofertasEducativas.length <= 0) {
 			SWAL_ERROR(`Institulo debe tener almenos una oferta educativa.`, 1700)
 			return false
 		}
 
-		if(this.instituto.ofertasEducativas.length > 0){
+		if (this.instituto.ofertasEducativas.length > 0) {
 			const validacion = Object.keys(this.instituto).map(propiedad => instituloBackup[propiedad].length <= 0).includes(true)
-			if(validacion){
+			if (validacion) {
 				SWAL_ERROR(`Verificar los campos, Algunos son requeridos.`, 1700)
 				return false
 			}
@@ -72,13 +83,28 @@ export class RegisterComponent implements OnInit {
 	async crearInstitucionCompleta() {
 		const validacion = this.validacionEspacios()
 
-		if(validacion){
+		/* VALIDA SI LOS CAMPOS REQUERIDOS SON COMPLETADOS */
+		if (validacion) {
+
+			/* INHABILITA EL BOTON DE REGISTRO PARA QUE NO SE PRECIONE MUCHAS VECES */
 			this.validacionCompleta = false
-			const resultado = await this.FireStore.crearInstitucion(this.instituto)
-			if(resultado){
-				SWAL_CREATE(`Institucion creada Correctamente`)
+
+			/* TRY - CATCH : SIRVE PARA CAPTURAR ERRORES, TRY: SUCEDE ESTO, CATCH: SI NO SUCEDE ESTO */
+			try {
+				/* SE ENVIA A FIREBASE */
+				const resultado = await this.FireStore.crearInstitucion(this.instituto)
+
+				/* SI EL RESULTADO ES CORRECTO MOSTRARA UN MENSAJE VALIDO */
+				if (resultado) {
+					this.validacionCompleta = true
+					this.restablecerCampos()
+					SWAL_CREATE(`Institucion creada Correctamente`)
+				}
+			} catch (error) {
 				this.validacionCompleta = true
+				SWAL_ERROR('Algo Salio Mal, Institucion No Creada.', 1700)
 			}
+
 		}
 	}
 
