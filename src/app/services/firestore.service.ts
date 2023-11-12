@@ -27,26 +27,27 @@ export class FirestoreService {
 	/* OBTENER TODOS LOS REGISTROS = READ */
 	obtenerInstituciones() {
 		this.institutos = this.FireStore.collection<Instituto>(this.institutoColeccion);
-		return this.institutos.snapshotChanges().pipe(map(resp => {
+		return this.institutos.snapshotChanges().pipe(map((resp, index) => {
 			const institutos: Array<Instituto> = [];
+
 			resp.forEach((document) => {
-				const doc = document.payload.doc.data();
-				// doc.fecha = convertTimestamp(document.payload.doc.data().fecha);
+				const doc = { ...document.payload.doc.data(), id: document.payload.doc.id };
 				institutos.push(doc);
 			});
+
 			return institutos;
 		}))
 	}
 
 	/* OBTENER UN SOLO REGISTRO = READ */
 	obtenerInstituto(uuid: string) {
+
 		this.instituto = this.FireStore.collection<Instituto>(this.institutoColeccion);
-		return this.instituto.doc(uuid).snapshotChanges().pipe(map((resp) => {
-			const instituto: Array<Instituto> = [];
-			if (resp.payload.exists) {
-				const doc = resp.payload.data();
-				// doc.fecha = convertTimestamp(resp.payload.data().fecha);
-				instituto.push(doc);
+		return this.instituto.doc(uuid).snapshotChanges().pipe(map((document) => {
+			const instituto: Instituto = { nombre: '', descripcion: '', tipoInstituto: '', tiempoFinalizacion: '', ofertasEducativas: [] }
+
+			if (document.payload.exists) {
+				return { ...document.payload.data(), id: document.payload.id };
 			}
 			return instituto;
 		}))

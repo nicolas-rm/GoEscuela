@@ -2,7 +2,7 @@
 <app-breadcrumbs></app-breadcrumbs>
 <div class="row">
     <div *ngFor="let item of instituciones" class="col-lg-3 col-md-6">
-        <div class="card overflow-hidden cursor-pointer">
+        <div class="card overflow-hidden cursor-pointer" [routerLink]="this.obtenerRutaDetalle(item)">
             <div class="position-relative">
                 <img [src]="item.portada || '' | imagen" class="card-img-top" alt="" />
                 <!-- <div class="course-badge">

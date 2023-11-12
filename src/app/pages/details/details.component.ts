@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, map } from 'rxjs';
 import { Instituto } from 'src/app/interfaces/Instituto.interface';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
@@ -10,16 +11,14 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 })
 export class DetailsComponent implements OnInit {
 
+	instituto!: Instituto
 	instituciones!: Instituto[]
 
-	constructor(private FireStore: FirestoreService, private _router: Router, private activeRoute: ActivatedRoute) { }
+	constructor(private FireStore: FirestoreService, private _router: Router, private activeRoute: ActivatedRoute) {}
 
 	ngOnInit(): void {
 		const parametros: any = this.obtenerParametros()
-		this.obtenerInstituciones()
-		// const documento = this.obtenerInstituto(parametros.id)
-		console.log(this.instituciones)
-		console.log(parametros)
+		this.obtenerInstituto(parametros.id)
 	}
 
 	obtenerParametros() {
@@ -27,7 +26,7 @@ export class DetailsComponent implements OnInit {
 	}
 
 
-	obtenerInstituciones() {
-		this.FireStore.obtenerInstituciones().subscribe((insitituciones => this.instituciones = insitituciones))
+	obtenerInstituto(uuid: string) {
+		this.FireStore.obtenerInstituto(uuid).subscribe(instituto => this.instituto = instituto)
 	}
 }

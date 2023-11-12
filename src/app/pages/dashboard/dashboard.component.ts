@@ -17,11 +17,26 @@ export class DashboardComponent implements OnInit {
 	/* METODO / FUNCION QUE SE UTILIZA ANTES DEL RENDERIZADO TOTAL DE LA PAGINA */
 	ngOnInit(): void {
 		this.obtenerInstituciones()
+		console.log(this.instituciones)
 	}
 
 	obtenerInstituciones() {
 		this.FireStore.obtenerInstituciones().subscribe((insitituciones => this.instituciones = insitituciones))
 	}
 
-
+	obtenerRutaDetalle(instituto: Instituto) {
+		if(instituto.tipoInstituto === 'Universidad'){
+			return `/universidades/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		if(instituto.tipoInstituto === 'Preparatoria'){
+			return `/preparatorias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		if(instituto.tipoInstituto === 'Secundaria'){
+			return `/secundarias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		if(instituto.tipoInstituto === 'Primaria'){
+			return `/primarias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		return `/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+	}
 }
