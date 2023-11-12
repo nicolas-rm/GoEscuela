@@ -12,13 +12,15 @@ export class ImagenPipe implements PipeTransform {
 		}
 
 		if (referencia === 'logo') {
-			if(!imagen){
+			if (!imagen) {
 				return '../../assets/images/birrete.png'
 			}
-			if(imagen){
+			if (imagen) {
 				return imagen
 			}
 		}
+
+		return imagen
 
 	}
 

@@ -44,10 +44,11 @@ export class FirestoreService {
 
 		this.instituto = this.FireStore.collection<Instituto>(this.institutoColeccion);
 		return this.instituto.doc(uuid).snapshotChanges().pipe(map((document) => {
-			const instituto: Instituto = { nombre: '', descripcion: '', tipoInstituto: '', tiempoFinalizacion: '', ofertasEducativas: [] }
+			const instituto: Instituto = { nombre: '', descripcion: '', tipoInstituto: '', tiempoFinalizacion: '', ofertasEducativas: [], vistas: 0 }
 
 			if (document.payload.exists) {
 				return { ...document.payload.data(), id: document.payload.id };
+
 			}
 			return instituto;
 		}))

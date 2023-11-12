@@ -4,7 +4,7 @@
     <div *ngFor="let item of instituciones" class="col-lg-3 col-md-6">
         <div class="card overflow-hidden cursor-pointer" [routerLink]="this.obtenerRutaDetalle(item)">
             <div class="position-relative">
-                <img [src]="item.portada || '' | imagen" class="card-img-top" alt="" />
+                <img [src]="item.portada || '' | imagen" class="card-img-top rounded-0 object-fit-cover" alt="portada" />
                 <!-- <div class="course-badge">
                     <span class="bg-danger text-white px-2 py-1 rounded-3">Hot</span>
                 </div> -->

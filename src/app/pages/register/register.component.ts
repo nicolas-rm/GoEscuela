@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
 	/* IMPLETEMENTACION DE Two-way binding */
 
 	instituto: Instituto = {
+		vistas: 0,
 		nombre: '',
 		tiempoFinalizacion: '',
 		descripcion: '',
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
 	/* RESTABLECER LOS CAMPOS POR VALOR DEFAULT */
 	restablecerCampos() {
 		this.instituto = {
+			vistas: 0,
 			nombre: '',
 			tiempoFinalizacion: '',
 			descripcion: '',
