@@ -71,3 +71,35 @@
         </nav>
     </div>
 </header>
+
+<!--  Search Bar -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content rounded-1">
+            <div class="modal-header border-bottom">
+                <input [(ngModel)]="this.buscarLike" name="buscarLike" type="search" class="form-control fs-3" placeholder="Buscar" id="search2" (keyup)="this.obtenerInstituciones()" />
+                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
+					<i class="ti ti-x fs-5 ms-3"></i>
+				</span>
+            </div>
+            <div class="modal-body message-body" data-simplebar="">
+                <h5 class="mb-0 fs-5 p-1">Buscar "{{ this.buscarLike }}"</h5>
+                <ul *ngIf="this.instituciones.length > 0" class="list mb-0 py-2">
+                    <li *ngFor="let item of this.instituciones;" class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block"> {{ item.nombre }} </span>
+                            <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul *ngIf="this.instituciones.length <= 0 && this.buscarLike !== ''" class="list mb-0 py-2">
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block"> {{ 'No Se Encontraron Coincidencias.' }} </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

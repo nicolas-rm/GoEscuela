@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here and other directives ng
+
 /* COMPONENTES */
 import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 import { HeaderComponent } from '../shared/header/header.component';
@@ -23,7 +25,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 	],
 	imports: [
 		CommonModule,
-		AppRoutesModule
+		AppRoutesModule,
+		FormsModule,
+		ReactiveFormsModule
 	]
 })
 export class SharedModule { }

@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
 		const instituloBackup: any = this.instituto
 
 		if (this.instituto.ofertasEducativas.length <= 0) {
-			SWAL_ERROR(`Institulo debe tener almenos una oferta educativa.`, 1700)
+			SWAL_ERROR(`Institulo debe tener al menos una oferta educativa.`, 1700)
 			return false
 		}
 
