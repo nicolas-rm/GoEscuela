@@ -83,8 +83,8 @@
 				</span>
             </div>
             <div class="modal-body message-body" data-simplebar="">
-                <h5 class="mb-0 fs-5 p-1">Buscar "{{ this.buscarLike }}"</h5>
-                <ul *ngIf="this.instituciones.length > 0" class="list mb-0 py-2">
+                <h5 class="mb-0 fs-5 p-1">Buscar {{ this.buscarLike }}</h5>
+                <ul *ngIf="this.instituciones" class="list mb-0 py-2">
                     <li *ngFor="let item of this.instituciones;" class="p-1 mb-1 bg-hover-light-black">
                         <a href="#">
                             <span class="fs-3 text-dark fw-normal d-block"> {{ item.nombre }} </span>

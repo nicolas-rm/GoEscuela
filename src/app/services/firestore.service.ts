@@ -66,7 +66,7 @@ export class FirestoreService {
 				resp.forEach((document) => {
 					const doc = { ...document.payload.doc.data(), id: document.payload.doc.id };
 					const instituloBackup: any = doc
-					const validacion = Object.keys(doc).map(propiedad => String(instituloBackup[propiedad])?.includes(buscarLike)).includes(true)
+					const validacion = Object.keys(doc).map(propiedad => String(instituloBackup[propiedad])?.toLowerCase().includes(buscarLike.toLowerCase())).includes(true)
 					if (validacion === true) {
 						institutos.push(doc)
 					}

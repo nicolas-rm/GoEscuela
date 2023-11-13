@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class HeaderComponent implements OnInit {
 
 	buscarLike: string = ''
-	instituciones!: Instituto[]
+	instituciones: Instituto[] = []
 
 	constructor(private FireStore: FirestoreService, private _router: Router) { }
 
