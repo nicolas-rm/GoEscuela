@@ -1,21 +1,25 @@
-<!-- --------------------------------------------------- -->
-<!-- Header Start -->
-<!-- --------------------------------------------------- -->
 <header class="app-header sticky-top">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light">
             <ul class="d-flex navbar-nav mb-0">
                 <li class="nav-item">
-                    <a class="nav-link sidebartoggler nav-icon-hover" id="sidebarCollapse" href="javascript:void(0)">
-                        <div class="logo">
-                            <h3 id="GoSkul">
-                                <a routerLink="/" style='text-decoration:none; color:black;'>
-									Go<b>Escuela</b>
-								</a>
-                            </h3>
-                        </div>
+                    <a href="javascript:void(0)" class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
+                        <span class="iconify fs-7 text-dark" data-icon="solar:list-bold-duotone"></span>
+                        <!-- <iconify-icon icon="solar:hamburger-menu-line-duotone"
+									class="text-dark fs-7"></iconify-icon>-->
                     </a>
                 </li>
+            </ul>
+            <ul class="d-flex navbar-nav mb-0 d-none d-xl-block d-lg-block">
+                <a class="nav-link sidebartoggler nav-icon-hover" id="sidebarCollapse" href="javascript:void(0)">
+                    <div class="logo">
+                        <h3 id="GoSkul">
+                            <a routerLink="/" style='text-decoration:none; color:black;'>
+								Go<b>Escuela</b>
+							</a>
+                        </h3>
+                    </div>
+                </a>
             </ul>
             <ul class="navbar-nav quick-links d-none d-lg-flex">
                 <li class="nav-item dropdown-hover d-none d-lg-block me-2">
@@ -31,54 +35,34 @@
                     <a class="nav-link" routerLink="/primarias">Primarias</a>
                 </li>
                 <li class="nav-item dropdown-hover d-none d-lg-block">
-                    <a class="nav-link" routerLink="/registro">Registrar Informacion</a>
+                    <a class="nav-link" routerLink="/registro">Registrar</a>
                 </li>
             </ul>
-            <button class="navbar-toggler nav-link border-0" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="d-block d-lg-none">
+                <a class="nav-link sidebartoggler nav-icon-hover" id="sidebarCollapse" href="javascript:void(0)">
+                    <div class="logo">
+                        <h3 id="GoSkul">
+                            <a routerLink="/" style='text-decoration:none; color:black;'>
+								Go<b>Escuela</b>
+							</a>
+                        </h3>
+                    </div>
+                </a>
+            </div>
+            <button class="navbar-toggler nav-link border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" href="javascript:void(0)">
 				<div>
-					<a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)" id="drop3"
-						aria-expanded="false">
-						<form class="nav-link position-relative">
-							<input type="text" class="form-control rounded-3 py-2 ps-5 text-dark" id="search"
-								placeholder="Buscar">
-							<span
-								class="iconify text-dark position-absolute top-50 start-0 translate-middle-y text-dark ms-3"
-								data-icon="solar:magnifer-linear"></span>
-						</form>
-					</a>
-					<!-- <span class="iconify fs-7" data-icon="solar:menu-dots-bold-duotone"></span> -->
+					<span class="iconify text-dark fs-6" data-icon="solar:magnifer-linear"></span>
+					<!-- <iconify-icon icon="solar:menu-dots-bold-duotone" class="fs-7"></iconify-icon> -->
 				</div>
 			</button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <div class="d-flex align-items-center justify-content-between">
                     <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
-
-                        <!-- BUSCAR MODO ESCRITORIO -->
                         <li class="nav-item dropdown d-none d-lg-block">
-                            <a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)" id="drop3" aria-expanded="false">
-                                <form class="nav-link position-relative">
-                                    <input type="text" class="form-control rounded-3 py-2 ps-5 text-dark" id="search" placeholder="Buscar">
-                                    <span class="iconify text-dark position-absolute top-50 start-0 translate-middle-y text-dark ms-3" data-icon="solar:magnifer-linear"></span>
-                                </form>
-                            </a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link position-relative ms-7" href="javascript:void(0)" id="drop1" aria-expanded="false">
-                                <div class="d-flex align-items-center flex-shrink-0">
-                                    <div class="user-profile me-sm-3 me-2">
-                                        <img src="../assets/images/user/user6.jpg" width="45" class="rounded-circle" alt="">
-                                    </div>
-
-                                    <div class="d-none d-sm-block">
-                                        <h6 class="fw-bold fs-4 mb-1 profile-name">
-                                            Mike Nielsen
-                                        </h6>
-                                        <p class="fs-3 lh-base mb-0 profile-subtext">
-                                            Admin
-                                        </p>
-                                    </div>
-                                </div>
+                            <a class="nav-link position-relative nav-icon-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" href="javascript:void(0)">
+                                <span class="iconify text-dark fs-6" data-icon="solar:magnifer-linear"></span>
+                                <!-- <iconify-icon icon="solar:magnifer-linear"
+											class="text-dark fs-6"></iconify-icon>-->
                             </a>
                         </li>
                     </ul>
@@ -87,12 +71,3 @@
         </nav>
     </div>
 </header>
-<!-- --------------------------------------------------- -->
-<!-- Header End -->
-<!-- --------------------------------------------------- -->
-
-
-<!-- Breadcrumb Start -->
-<!-- <app-breadcrumbs></app-breadcrumbs> -->
-
-<!-- Breadcrumb End -->

@@ -1,0 +1,170 @@
+<!--  Mobilenavbar -->
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="mobilenavbar" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <aside class="">
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+            <a class="nav-link sidebartoggler nav-icon-hover" id="sidebarCollapse" href="javascript:void(0)">
+                <div class="logo">
+                    <h3 id="GoSkul">
+                        <a routerLink="/" style='text-decoration:none; color:black;'>
+							Go<b>Escuela</b>
+						</a>
+                    </h3>
+                </div>
+            </a>
+            <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer">
+                <a href="javascript:void(0)" class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="oncanvasWithBothOptions">
+                    <span class="iconify fs-7 text-dark justify-content-end" data-icon="carbon:close-outline"></span>
+                    <!-- <iconify-icon icon="solar:hamburger-menu-line-duotone"
+								class="text-dark fs-7"></iconify-icon>-->
+                </a>
+            </div>
+        </div>
+
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar container-fluid" data-simplebar>
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav d-flex align-items-center justify-content-between" class="mb-0">
+
+                    <!-- ============================= -->
+                    <!-- Home -->
+                    <!-- ============================= -->
+                    <li class="nav-small-cap">
+                        <span class="iconify nav-small-cap-icon fs-5" data-icon="solar:menu-dots-bold-duotone"></span>
+                        <!-- <iconify-icon icon="solar:menu-dots-bold-duotone" class="nav-small-cap-icon fs-5"></iconify-icon> -->
+                        <span class="hide-menu">Inicio</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link primary-hover-bg" href="index.html" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-primary rounded-1">
+								<span class="iconify fs-8" data-icon="ph:graduation-cap"></span>
+                            <!-- <iconify-icon icon="solar:screencast-2-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Universidades</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link secondary-hover-bg" href="index2.html" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-success rounded-1">
+								<span class="iconify fs-8" data-icon="bxs:institution"></span>
+                            <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Preparatorias</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link warning-hover-bg" href="index2.html" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-success rounded-1">
+								<span class="iconify fs-8" data-icon="solar:user-broken"></span>
+                            <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Secundarias</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link success-hover-bg" href="index2.html" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-success rounded-1">
+								<span class="iconify fs-8" data-icon="fa6-solid:children"></span>
+                            <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Primarias</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+</div>
+
+<!--  Search Bar -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content rounded-1">
+            <div class="modal-header border-bottom">
+                <input type="search" class="form-control fs-3" placeholder="Buscar" id="search2" />
+                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
+					<i class="ti ti-x fs-5 ms-3"></i>
+				</span>
+            </div>
+            <div class="modal-body message-body" data-simplebar="">
+                <h5 class="mb-0 fs-5 p-1">Quick Page Links</h5>
+                <ul class="list mb-0 py-2">
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Modern</span>
+                            <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Dashboard</span>
+                            <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Contacts</span>
+                            <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Posts</span>
+                            <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Detail</span>
+                            <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Shop</span>
+                            <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Modern</span>
+                            <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Dashboard</span>
+                            <span class="fs-3 text-muted d-block">/dashboards/dashboard2</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Contacts</span>
+                            <span class="fs-3 text-muted d-block">/apps/contacts</span>
+                        </a>
+                        < <li class="p-1 mb-1 bg-hover-light-black">
+                            <a href="#">
+                                <span class="fs-3 text-dark fw-normal d-block">Posts</span>
+                                <span class="fs-3 text-muted d-block">/apps/blog/posts</span>
+                            </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Detail</span>
+                            <span class="fs-3 text-muted d-block">/apps/blog/detail/streaming-video-way-before-it-was-cool-go-dark-tomorrow</span>
+                        </a>
+                    </li>
+                    <li class="p-1 mb-1 bg-hover-light-black">
+                        <a href="#">
+                            <span class="fs-3 text-dark fw-normal d-block">Shop</span>
+                            <span class="fs-3 text-muted d-block">/apps/ecommerce/shop</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
