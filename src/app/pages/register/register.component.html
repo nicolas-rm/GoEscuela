@@ -84,14 +84,14 @@
                         <i class="ti ti-send fs-5 me-2"></i> Registrar
                     </div>
                 </button>
-                <button *ngIf="this.parametros === true" class="btn btn-warning rounded-pill px-4" (click)="eliminarInstitucionCompleta()" [disabled]="!this.validacionCompleta">
+                <button *ngIf="this.parametros === true" class="btn btn-warning rounded-pill px-4" (click)="this.cancelar()" [disabled]="!this.validacionCompleta">
                     <div class="d-flex align-items-center">
                         <i class="ti ti-close fs-5 me-2"></i> Cancelar
                     </div>
                 </button>
                 <button *ngIf="this.parametros === true" class="btn btn-danger rounded-pill px-4" (click)="eliminarInstitucionCompleta()" [disabled]="!this.validacionCompleta">
                     <div class="d-flex align-items-center">
-                        <i class="ti ti-trash fs-5 me-2"></i> Eliminar
+                        <i class="ti \« fs-5 me-2"></i> Eliminar
                     </div>
                 </button>
                 <button *ngIf="this.parametros === true" class="btn btn-primary rounded-pill px-4" (click)="actualizarInstitucionCompleta()" [disabled]="!this.validacionCompleta">

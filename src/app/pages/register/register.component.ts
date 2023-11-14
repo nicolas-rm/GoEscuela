@@ -196,4 +196,7 @@ export class RegisterComponent implements OnInit {
 		}
 	}
 
+	cancelar(){
+		this.location.back()
+	}
 }
