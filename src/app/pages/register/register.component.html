@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="position-relative text-center my-4">
-                    <p class="mb-0 fs-4 px-3 d-inline-block bg-white z-1 position-relative">Registro Informacion</p>
+                    <p class="mb-0 fs-4 px-3 d-inline-block bg-white z-1 position-relative"> {{ this.titulo }} </p>
                     <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
                 </div>
             </div>
@@ -79,9 +79,24 @@
         </form>
         <div class="d-md-flex align-items-center">
             <div class="mt-3 mt-md-0 ms-auto">
-                <button class="btn btn-primary rounded-pill px-4" (click)="crearInstitucionCompleta()" [disabled]="!this.validacionCompleta">
+                <button *ngIf="this.parametros === false" class="btn btn-primary rounded-pill px-4" (click)="crearInstitucionCompleta()" [disabled]="!this.validacionCompleta">
                     <div class="d-flex align-items-center">
                         <i class="ti ti-send fs-5 me-2"></i> Registrar
+                    </div>
+                </button>
+                <button *ngIf="this.parametros === true" class="btn btn-warning rounded-pill px-4" (click)="eliminarInstitucionCompleta()" [disabled]="!this.validacionCompleta">
+                    <div class="d-flex align-items-center">
+                        <i class="ti ti-close fs-5 me-2"></i> Cancelar
+                    </div>
+                </button>
+                <button *ngIf="this.parametros === true" class="btn btn-danger rounded-pill px-4" (click)="eliminarInstitucionCompleta()" [disabled]="!this.validacionCompleta">
+                    <div class="d-flex align-items-center">
+                        <i class="ti ti-trash fs-5 me-2"></i> Eliminar
+                    </div>
+                </button>
+                <button *ngIf="this.parametros === true" class="btn btn-primary rounded-pill px-4" (click)="actualizarInstitucionCompleta()" [disabled]="!this.validacionCompleta">
+                    <div class="d-flex align-items-center">
+                        <i class="ti ti-send fs-5 me-2"></i> Actualizar
                     </div>
                 </button>
             </div>

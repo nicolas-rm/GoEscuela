@@ -32,94 +32,94 @@ export const SWAL_CREATE = (leyenda: string, parametro?: any) => {
 	// }
 
 	const Toast = Swal.mixin({
-	   toast: true,
-	   position: 'top-end',
-	   showConfirmButton: false,
-	   timer: 2200,
-	   timerProgressBar: true,
-	   didOpen: (toast) => {
-		  toast.addEventListener('mouseenter', Swal.stopTimer);
-		  toast.addEventListener('mouseleave', Swal.resumeTimer);
-	   }
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 2200,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer);
+			toast.addEventListener('mouseleave', Swal.resumeTimer);
+		}
 	});
 
 	Toast.fire({
-	   icon: 'success',
-	   title: leyenda + '\n',
-	   text: parametro,
+		icon: 'success',
+		title: leyenda + '\n',
+		text: parametro,
 	});
- };
+};
 
 
- export const SWAL_UPDATE = (leyenda: string, parametro?: any) => {
+export const SWAL_UPDATE = (leyenda: string, parametro?: any) => {
 	let texto: string;
 	if (parametro) {
-	   texto = `${leyenda} ${parametro}.`;
+		texto = `${leyenda} ${parametro}.`;
 	} else {
-	   texto = `${leyenda}.`;
+		texto = `${leyenda}.`;
 	}
 
 
 	const Toast = Swal.mixin({
-	   toast: true,
-	   position: 'top-end',
-	   showConfirmButton: false,
-	   timer: 2200,
-	   timerProgressBar: true,
-	   didOpen: (toast) => {
-		  toast.addEventListener('mouseenter', Swal.stopTimer);
-		  toast.addEventListener('mouseleave', Swal.resumeTimer);
-	   }
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 2200,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer);
+			toast.addEventListener('mouseleave', Swal.resumeTimer);
+		}
 	});
 
 	Toast.fire({
-	   icon: 'success',
-	   title: texto
+		icon: 'success',
+		title: texto
 	});
- };
+};
 
- export const SWAL_DELETE = (tipo: string, parametro?: string) => {
+export const SWAL_DELETE = (tipo: string, parametro?: string) => {
 	const Toast = Swal.mixin({
-	   toast: true,
-	   position: 'top-end',
-	   showConfirmButton: false,
-	   timer: 2200,
-	   timerProgressBar: true,
-	   didOpen: (toast) => {
-		  toast.addEventListener('mouseenter', Swal.stopTimer);
-		  toast.addEventListener('mouseleave', Swal.resumeTimer);
-	   }
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 2200,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer);
+			toast.addEventListener('mouseleave', Swal.resumeTimer);
+		}
 	});
 
 	Toast.fire({
-	   icon: 'success',
-	   title: `${tipo}!`,
-	   text: parametro + ' Eliminado Correctamente.'
+		icon: 'success',
+		title: `${tipo}!`,
+		text: parametro + ' Eliminado Correctamente.'
 	});
- };
+};
 
- export const SWAL_CONFIRMATION = (preposicion: string, tipo: string, parametro: string) => {
+export const SWAL_CONFIRMATION = (preposicion: string, tipo: string, parametro: any) => {
 	// let confirmacion: boolean = false;
 
 	return Swal.fire({
-	   title: '¿Estas Seguro?',
-	   text: `Desea Eliminar ${preposicion} ${tipo} ${parametro}`,
-	   icon: 'warning',
-	   showCancelButton: true,
-	   confirmButtonColor: '#3085d6',
-	   cancelButtonColor: '#d33',
-	   cancelButtonText: 'Cancelar',
-	   confirmButtonText: 'Si, Eliminar'
+		title: '¿Estas Seguro?',
+		text: `Desea Eliminar ${preposicion} ${tipo} ${parametro}`,
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Cancelar',
+		confirmButtonText: 'Si, Eliminar'
 	}).then((result) => {
-	   if (result.value) {
-		  return true;
-	   } else {
-		  return false;
-	   }
+		if (result.value) {
+			return true;
+		} else {
+			return false;
+		}
 	});
 
 	// return confirmacion;
- };
+};
 
 //  export const SWAL_TEXT = async () => {
 

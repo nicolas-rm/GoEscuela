@@ -5,8 +5,6 @@
                 <li class="nav-item">
                     <a href="javascript:void(0)" class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
                         <span class="iconify fs-7 text-dark" data-icon="solar:list-bold-duotone"></span>
-                        <!-- <iconify-icon icon="solar:hamburger-menu-line-duotone"
-									class="text-dark fs-7"></iconify-icon>-->
                     </a>
                 </li>
             </ul>
@@ -50,10 +48,7 @@
                 </a>
             </div>
             <button class="navbar-toggler nav-link border-0" data-bs-toggle="modal" data-bs-target="#exampleModal" href="javascript:void(0)">
-				<div>
-					<span class="iconify text-dark fs-6" data-icon="solar:magnifer-linear"></span>
-					<!-- <iconify-icon icon="solar:menu-dots-bold-duotone" class="fs-7"></iconify-icon> -->
-				</div>
+				<span class="iconify text-dark fs-6" data-icon="solar:magnifer-linear"></span>
 			</button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <div class="d-flex align-items-center justify-content-between">
@@ -61,8 +56,6 @@
                         <li class="nav-item dropdown d-none d-lg-block">
                             <a class="nav-link position-relative nav-icon-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" href="javascript:void(0)">
                                 <span class="iconify text-dark fs-6" data-icon="solar:magnifer-linear"></span>
-                                <!-- <iconify-icon icon="solar:magnifer-linear"
-											class="text-dark fs-6"></iconify-icon>-->
                             </a>
                         </li>
                     </ul>
@@ -73,29 +66,30 @@
 </header>
 
 <!--  Search Bar -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content rounded-1">
             <div class="modal-header border-bottom">
                 <input [(ngModel)]="this.buscarLike" name="buscarLike" type="search" class="form-control fs-3" placeholder="Buscar" id="search2" (keyup)="this.obtenerInstituciones()" />
-                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer">
+                <span data-bs-dismiss="modal" class="lh-1 cursor-pointer" (click)="this.restablecerBuscador()">
 					<i class="ti ti-x fs-5 ms-3"></i>
 				</span>
             </div>
             <div class="modal-body message-body" data-simplebar="">
                 <h5 class="mb-0 fs-5 p-1">Buscar {{ this.buscarLike }}</h5>
                 <ul *ngIf="this.instituciones" class="list mb-0 py-2">
-                    <li *ngFor="let item of this.instituciones;" class="p-1 mb-1 bg-hover-light-black">
-                        <a href="#">
+                    <li *ngFor="let item of this.instituciones;" class="p-2 m-2 bg-hover-light-black" (click)="this.restablecerBuscador()" [routerLink]="this.obtenerRutaDetalle(item)" [attr.data-bs-dismiss]="'modal'">
+                        <a>
                             <span class="fs-3 text-dark fw-normal d-block"> {{ item.nombre }} </span>
-                            <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span>
+                            <!-- <span class="fs-3 text-muted d-block">/dashboards/dashboard1</span> -->
                         </a>
                     </li>
                 </ul>
                 <ul *ngIf="this.instituciones.length <= 0 && this.buscarLike !== ''" class="list mb-0 py-2">
                     <li class="p-1 mb-1 bg-hover-light-black">
                         <a href="#">
-                            <span class="fs-3 text-dark fw-normal d-block"> {{ 'No Se Encontraron Coincidencias.' }} </span>
+                            <span class="fs-3 text-dark fw-normal d-block"> {{ 'No Se Encontraron Coincidencias.' }}
+							</span>
                         </a>
                     </li>
                 </ul>

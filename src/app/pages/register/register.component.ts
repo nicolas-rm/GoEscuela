@@ -1,11 +1,12 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 /* INTERFACE O TIPADO  */
 import { Instituto } from '../../interfaces/Instituto.interface'
 /* SERVICIO DE CONEXIONES (CRUD) FIREBASE/FIRESTORE */
 import { FirestoreService } from 'src/app/services/firestore.service';
-import { SWAL_CREATE, SWAL_ERROR } from 'src/app/messages/sweetAlert';
+import { SWAL_CONFIRMATION, SWAL_CREATE, SWAL_ERROR, SWAL_UPDATE } from 'src/app/messages/sweetAlert';
+import { Location } from '@angular/common';
 
 // import Swal from 'sweetalert2';
 @Component({
@@ -27,14 +28,32 @@ export class RegisterComponent implements OnInit {
 	}
 
 	oferta: string = ''
+	titulo: string = 'Registro Informacion'
+	parametros: Boolean = false
 	validacionCompleta: Boolean = true
 
-	ngOnInit(): void {
+	constructor(private FireStore: FirestoreService, private _router: Router, private activeRoute: ActivatedRoute, private location: Location) { }
 
+	ngOnInit(): void {
+		/* SE OBTIENEN LOS PARAMETROS EN DADO CASO QUE VENGA ALGUNO / (SI VIENE ES ACTUALIZAR) */
+		const parametros: any = this.obtenerParametros()
+		if (parametros.id) {
+			this.titulo = 'Actualizacion Informacion'
+			this.obtenerInstituto(parametros.id)
+			this.parametros = true
+		} else {
+			this.titulo = 'Registro Informacion'
+			this.parametros = false
+		}
 	}
 
-	constructor(private FireStore: FirestoreService, private _router: Router) { }
+	obtenerParametros() {
+		return this.activeRoute.snapshot.params;
+	}
 
+	obtenerInstituto(uuid: string) {
+		this.FireStore.obtenerInstituto(uuid).subscribe(instituto => this.instituto = instituto)
+	}
 	/* RESTABLECER LOS CAMPOS POR VALOR DEFAULT */
 	restablecerCampos() {
 		this.instituto = {
@@ -101,10 +120,77 @@ export class RegisterComponent implements OnInit {
 					this.validacionCompleta = true
 					this.restablecerCampos()
 					SWAL_CREATE(`Institucion creada Correctamente`)
+				}else {
+					this.validacionCompleta = true
 				}
 			} catch (error) {
 				this.validacionCompleta = true
 				SWAL_ERROR('Algo Salio Mal, Institucion No Creada.', 1700)
+			}
+
+		}
+	}
+
+	/* Actualizar un regitro de institucion */
+	async actualizarInstitucionCompleta() {
+		const validacion = this.validacionEspacios()
+
+		/* VALIDA SI LOS CAMPOS REQUERIDOS SON COMPLETADOS */
+		if (validacion) {
+
+			/* INHABILITA EL BOTON DE REGISTRO PARA QUE NO SE PRECIONE MUCHAS VECES */
+			this.validacionCompleta = false
+
+			/* TRY - CATCH : SIRVE PARA CAPTURAR ERRORES, TRY: SUCEDE ESTO, CATCH: SI NO SUCEDE ESTO */
+			try {
+				/* SE ENVIA A FIREBASE */
+				const resultado = await this.FireStore.actulizarInstitucion(this.instituto)
+
+				/* SI EL RESULTADO ES CORRECTO MOSTRARA UN MENSAJE VALIDO */
+				if (resultado) {
+					this.validacionCompleta = true
+					this.location.back()
+					SWAL_UPDATE(`Institucion Actualizada Correctamente.`)
+				}else {
+					this.validacionCompleta = true
+				}
+			} catch (error) {
+				this.validacionCompleta = true
+				SWAL_ERROR('Algo Salio Mal, Institucion No Actualizada.', 1700)
+			}
+
+		}
+	}
+
+	/* Eliminar un regitro de institucion */
+	async eliminarInstitucionCompleta() {
+		const validacion = this.validacionEspacios()
+
+		/* VALIDA SI LOS CAMPOS REQUERIDOS SON COMPLETADOS */
+		if (validacion) {
+
+			/* INHABILITA EL BOTON DE REGISTRO PARA QUE NO SE PRECIONE MUCHAS VECES */
+			this.validacionCompleta = false
+
+			/* TRY - CATCH : SIRVE PARA CAPTURAR ERRORES, TRY: SUCEDE ESTO, CATCH: SI NO SUCEDE ESTO */
+			try {
+
+				/* SI EL RESULTADO ES CORRECTO MOSTRARA UN MENSAJE VALIDO */
+				const confirmacion = await SWAL_CONFIRMATION('La', 'Institucion', this?.instituto?.nombre || this?.instituto?.id)
+				if (confirmacion) {
+					const resultado = await this.FireStore.eliminarInstitucion(this.instituto)
+					if(resultado){
+						this.validacionCompleta = true
+						this.restablecerCampos()
+						this._router.navigate(['/registro'])
+					}
+				}else {
+					this.validacionCompleta = true
+				}
+
+			} catch (error) {
+				this.validacionCompleta = true
+				SWAL_ERROR('Algo Salio Mal, Institucion No Actualizada.', 1700)
 			}
 
 		}

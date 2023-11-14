@@ -14,9 +14,11 @@ export class FirestoreService {
 
 	institutoColeccion = '/institutos'
 
+	private instituto!: AngularFirestoreCollection<Instituto>
 	private institutos!: AngularFirestoreCollection<Instituto>
 	private buscarLike!: AngularFirestoreCollection<Instituto>
-	private instituto!: AngularFirestoreCollection<Instituto>
+	private buscarLikeCategoria!: AngularFirestoreCollection<Instituto>
+	private buscarInstitutoCategoria!: AngularFirestoreCollection<Instituto>
 
 	constructor(private FireStore: AngularFirestore) { }
 
@@ -55,6 +57,21 @@ export class FirestoreService {
 		}))
 	}
 
+	/* OBTENER UN SOLO REGISTRO = READ */
+	obteneInstitutoCategoria(categoria: string) {
+
+		this.buscarInstitutoCategoria = this.FireStore.collection<Instituto>(this.institutoColeccion, ref => ref.where('tipoInstituto', '==', categoria));
+		return this.buscarInstitutoCategoria.snapshotChanges().pipe(map((resp, index) => {
+			const institutos: Array<Instituto> = [];
+			resp.forEach((document) => {
+				const doc = { ...document.payload.doc.data(), id: document.payload.doc.id };
+				institutos.push(doc);
+			});
+
+			return institutos;
+		}))
+	}
+
 	/* OBTENER COINCIDENCIAS CON EL VALOR A BUSCAR */
 	obtenerCoincidencias(buscarLike: string) {
 		this.buscarLike = this.FireStore.collection<Instituto>(this.institutoColeccion);
@@ -79,14 +96,38 @@ export class FirestoreService {
 		}))
 	}
 
+	/* OBTENER COINCIDENCIAS CON EL VALOR A BUSCAR */
+	obtenerCoincidenciasCategoria(categoria: string, buscarLike: string) {
+		this.buscarLikeCategoria = this.FireStore.collection<Instituto>(this.institutoColeccion, ref => ref.where('tipoInstituto', '==', categoria));
+		return this.buscarLikeCategoria.snapshotChanges().pipe(map((resp, index) => {
+				let institutos: Array<Instituto> = [];
+
+			if (buscarLike.length > 3) {
+
+				resp.forEach((document) => {
+					const doc = { ...document.payload.doc.data(), id: document.payload.doc.id };
+					const instituloBackup: any = doc
+					const validacion = Object.keys(doc).map(propiedad => String(instituloBackup[propiedad])?.toLowerCase().includes(buscarLike.toLowerCase())).includes(true)
+					if (validacion === true) {
+						institutos.push(doc)
+					}
+				});
+			}else {
+				institutos = []
+			}
+
+			return institutos;
+		}))
+	}
+
 	/* ACTUALIZAR REGISTRO = UPDATE */
 	actulizarInstitucion(document: Instituto) {
-		return this.FireStore.collection(this.institutoColeccion).doc(document.id).set(document);
+		return this.FireStore.collection(this.institutoColeccion).doc(document.id).set(document).then(() => true).catch(() => false);
 	}
 
 	/* ELIMINAR REGISTRO = DELETE */
 	eliminarInstitucion(document: Instituto) {
-		return this.FireStore.collection(this.institutoColeccion).doc(document.id).delete();
+		return this.FireStore.collection(this.institutoColeccion).doc(document.id).delete().then(() => true).catch(() => false);
 	}
 }
 

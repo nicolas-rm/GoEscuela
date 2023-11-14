@@ -54,4 +54,8 @@
     border-radius: 0
     /* display: inline-block; */
     /* height: 270px; */
- }
+}
+
+.ti-close:before {
+    content: "\e646";
+}

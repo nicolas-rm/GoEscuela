@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 export class HeaderComponent implements OnInit {
 
 	buscarLike: string = ''
+	mostrar: boolean = false
 	instituciones: Instituto[] = []
 
 	constructor(private FireStore: FirestoreService, private _router: Router) { }
@@ -28,4 +29,31 @@ export class HeaderComponent implements OnInit {
 		}
 	}
 
+	restablecerBuscador(){
+		this.instituciones = []
+		this.buscarLike = ''
+		this.mostrar = false
+	}
+
+	obtenerRutaDetalle(instituto: Instituto) {
+		let url: string = ''
+
+		if(instituto.tipoInstituto === 'Universidad'){
+			url = `/universidades/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		if(instituto.tipoInstituto === 'Preparatoria'){
+			// this.restablecerBuscador()
+			url = `/preparatorias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+		// this.restablecerBuscador()
+		if(instituto.tipoInstituto === 'Secundaria'){
+			url = `/secundarias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+
+		if(instituto.tipoInstituto === 'Primaria'){
+			url = `/primarias/${String(instituto.tipoInstituto).toLowerCase()}/${instituto.id}`
+		}
+
+		return url
+	}
 }

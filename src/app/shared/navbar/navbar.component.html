@@ -14,8 +14,6 @@
             <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer">
                 <a href="javascript:void(0)" class="nav-link d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="oncanvasWithBothOptions">
                     <span class="iconify fs-7 text-dark justify-content-end" data-icon="carbon:close-outline"></span>
-                    <!-- <iconify-icon icon="solar:hamburger-menu-line-duotone"
-								class="text-dark fs-7"></iconify-icon>-->
                 </a>
             </div>
         </div>
@@ -32,10 +30,19 @@
                     <li class="nav-small-cap">
                         <span class="iconify nav-small-cap-icon fs-5" data-icon="solar:menu-dots-bold-duotone"></span>
                         <!-- <iconify-icon icon="solar:menu-dots-bold-duotone" class="nav-small-cap-icon fs-5"></iconify-icon> -->
-                        <span class="hide-menu">Inicio</span>
+                        <span class="hide-menu">Secciones</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link sidebar-link primary-hover-bg" href="index.html" aria-expanded="false">
+                        <a class="sidebar-link sidebar-link danger-hover-bg" routerLink="/" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-primary rounded-1">
+								<span class="iconify fs-8" data-icon="carbon:home"></span>
+                            <!-- <iconify-icon icon="solar:screencast-2-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link primary-hover-bg" routerLink="/universidades" aria-expanded="false">
                             <span class="aside-icon p-2 bg-light-primary rounded-1">
 								<span class="iconify fs-8" data-icon="ph:graduation-cap"></span>
                             <!-- <iconify-icon icon="solar:screencast-2-line-duotone" class="fs-6"></iconify-icon> -->
@@ -44,7 +51,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link sidebar-link secondary-hover-bg" href="index2.html" aria-expanded="false">
+                        <a class="sidebar-link sidebar-link secondary-hover-bg" routerLink="/preparatorias" aria-expanded="false">
                             <span class="aside-icon p-2 bg-light-success rounded-1">
 								<span class="iconify fs-8" data-icon="bxs:institution"></span>
                             <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
@@ -53,7 +60,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link sidebar-link warning-hover-bg" href="index2.html" aria-expanded="false">
+                        <a class="sidebar-link sidebar-link warning-hover-bg" routerLink="/secundarias" aria-expanded="false">
                             <span class="aside-icon p-2 bg-light-success rounded-1">
 								<span class="iconify fs-8" data-icon="solar:user-broken"></span>
                             <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
@@ -62,7 +69,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link sidebar-link success-hover-bg" href="index2.html" aria-expanded="false">
+                        <a class="sidebar-link sidebar-link success-hover-bg" routerLink="/primarias" aria-expanded="false">
                             <span class="aside-icon p-2 bg-light-success rounded-1">
 								<span class="iconify fs-8" data-icon="fa6-solid:children"></span>
                             <!-- <iconify-icon icon="solar:chart-line-duotone" class="fs-6"></iconify-icon> -->
@@ -70,6 +77,24 @@
                             <span class="hide-menu ps-1">Primarias</span>
                         </a>
                     </li>
+                    <!-- ============================= -->
+                    <!-- Home -->
+                    <!-- ============================= -->
+                    <li class="nav-small-cap">
+                        <span class="iconify nav-small-cap-icon fs-5" data-icon="solar:menu-dots-bold-duotone"></span>
+                        <!-- <iconify-icon icon="solar:menu-dots-bold-duotone" class="nav-small-cap-icon fs-5"></iconify-icon> -->
+                        <span class="hide-menu">Acciones</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link sidebar-link primary-hover-bg" routerLink="/registro" aria-expanded="false">
+                            <span class="aside-icon p-2 bg-light-primary rounded-1">
+								<span class="iconify fs-8" data-icon="lets-icons:form"></span>
+                            <!-- <iconify-icon icon="solar:screencast-2-line-duotone" class="fs-6"></iconify-icon> -->
+                            </span>
+                            <span class="hide-menu ps-1">Registrar</span>
+                        </a>
+                    </li>
+
                 </ul>
 
             </nav>

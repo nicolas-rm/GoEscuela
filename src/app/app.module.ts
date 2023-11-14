@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutesModule } from './app-routes.module';
 
 /* MODULOS PARA INICIALIZAR FIREBASE */
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { PersistentCacheIndexManager, getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 

@@ -30,6 +30,7 @@ const routes: Routes = [
 	{ path: 'primarias/primaria/:id', component: DetailsComponent },
 
 	{ path: 'registro', component: RegisterComponent },
+	{ path: 'institucion/informacion/:id', component: RegisterComponent },
 	/* RUTA QUE NO EXISTE */
 	{ path: '', redirectTo: '/inicio', pathMatch: 'full' },
 	/* CUALQUIER OTRA RUTA QUE NO EXISTA */
